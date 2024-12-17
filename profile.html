@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial.scale=1.0">
+        <meta charset="uth-8">
+        <title>William's Profile</title>
+        <link rel="stylesheet" type="text/css" href="profile.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/default.min.css">
+    </head>
+    <body>
+        <div class="top">
+            <img src="image/top_banner.JPEG" alt="top-banner">
+        </div>
+        <div class="container">
+            <div class="left_container">
+                <div class="toc_container">
+                    <div class="toc_title">Table of Contents</div>
+                    <ul class="toc_list">
+                        <li><a href="#section1" class="toc_a">個人簡介與申請動機</a></li>
+                        <li><a href="#section2" class="toc_a">曾經做過哪些軟體工程技術相關的學習？若有作品請分享給我們。</a></li>
+                        <li><a href="#section3" class="toc_a">如果參與這個訓練，會怎麼安排學習時間？</a></li>
+                        <li><a href="#section4" class="toc_a">軟體技術日新月異，如何確定選擇投入的領域是正確有回報的？</a></li>
+                        <li><a href="#section5" class="toc_a">請描述一件產生明顯負面情緒的經歷，如何處理該情緒？</a></li>
+                        <li><a href="#section6" class="toc_a">關於這份申請網頁，分享一個開發時的技術心得。</a></li>
+                        <li><a href="#section7" class="toc_a">如何看待自身工作和整個社會群體的連結關係？</a></li>
+                        <li><a href="#section8" class="toc_a">其他想要對我們說的事情？</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right_container">
+                <div class="question_part">
+                    <div id="section1" class="article_title">個人簡介與申請動機</div>
+                    <div class="article_content">
+                        您好，我是游書維，曾任職於台灣之星，目前就職於KKday行銷部約兩年半，負責Tableau BI報表製作與協助業績分析，今年開始接手App推播規劃。
+                    </div>
+                    <div class="article_content">
+                        兩年半的時間讓我可以熟悉行銷與電商領域，在我所看見的行銷，是更注重短期的戰術，且重複性的業務量很高，也許可以達成短期的業績目標，但比較難帶來突破，例如我們可以執行快閃折扣刺激短期的業績，但長遠來看住宿商品的搜尋體驗依舊不佳，如果沒有改善搜尋體驗，一年後我們可能還是依靠短期戰術，這讓我看不見職涯的成長。但開發不同，如果我們優化一版搜尋體驗，未來的所有客人都能享受到這個體驗，而且我們可以再繼續優化，這使得工作就像長期投資一樣，持續地滾動下去。比起短期的戰術，我更喜歡長期發展的感覺，這是我想要轉職工程師的原因。
+                    </div>
+                    <div class="article_content">
+                        過去一年我開始探索轉職，一年前我看了中山大學卓雍然老師所開設的商業數據分析，老師使用R語言跑機器學習，預測賣場客戶的回購機率與回購金額，運用此結果判斷是否該提供客人折扣券，實在是震驚了我。當時公司內部剛好有一個討論是如果客人本來就會購買，為什麼還要給折扣券，但這個討論最終也止於討論，沒有後續的行動。如果當時我擁有軟體工程的能力，或許我不再是只看見問題，而是能動手解決問題，我認為這對我的職涯、視野都會寬闊起來，因此我開始學習Python，但自學之路我遇到了難題。
+                    </div>
+                    <div class="article_content">
+                        在職進修真的很辛苦，一天最有精神的狀態都在工作中，工作上也沒什麼機會可以使用到，使得自學的進度其實很慢，熟練度始終培養不出來。另一個問題是自學有時候會迷路，我不太確定哪些是業界需要的，要達到什麼程度才有資格去爭取入場券，假使有一個教練能夠指引方向，我認為會差非常多。所以後來我找到了WeHelp，我覺得這裡可以提供我一個很好的引導，讓我穩健的建立軟體工程能力，因此我是抱著準備辭職的心情來申請，希望我能夠錄取並在半年後感謝現在的決定。
+                    </div>
+                </div>
+                <div class="question_part">
+                    <div id="section2" class="article_title">曾經做過哪些軟體工程技術相關的學習？若有作品請分享給我們</div>
+                    <pre class="code_case"><code class="language-sql">
+/*
+Case 1 SQL：工作中，替行銷團隊撈取資料
+    a. 此Case是廣告團隊要將已經下單過的用戶，將其email匯入廣告後台，避免推廣新用戶的廣告打到舊客
+    b. 因為是定期上傳至廣告後台，本次只需將2024/10/3以來之名單。
+    c. 撈法是從訂單資料源將10/3以來有下單的email先篩出來，再排除曾經出現在10/3以前之名單
+*/ 
+SELECT distinct
+ot.contact_email as email
+from `db.order` o
+left join `db.member` m on m.member_uuid = o.member_uuid
+where DATE(DATETIME_ADD(o.create_date, INTERVAL 8 HOUR)) >= '2024-10-03'
+and DATE(DATETIME_ADD(o.create_date, INTERVAL 8 HOUR)) < '2024-12-12'
+and m.country_cd = 'TW'
+-- 排除曾經出現在2024-10-03以前之名單
+and o.contact_email NOT IN(
+    SELECT distinct
+    o.contact_email as email
+    from `db.order` o
+    left join `db.member` m on m.member_uuid = o.member_uuid
+    where DATE(DATETIME_ADD(o.create_date, INTERVAL 8 HOUR)) < '2024-10-03'
+    and m.country_cd = 'TW'
+)
+                    </code></pre>
+                </div>
+                <div class="question_part">
+                    <div id="section3" class="article_title">如果參與這個訓練，會怎麼安排學習時間？</div>
+                    <div class="article_content">
+                        我預計在1月底正式離職。所以第一階段會有一段期間是在職學習，後續會是全職進修，由於過去有自學過一點點程式語言，12月也開始看彭彭在Youtube的基礎教學，因此我認為1月的在職進修可以跟上進度，2月開始就能心無旁騖的衝刺。
+                    </div>
+                    <div class="article_content">
+                        2月開始會將原本上班時間都投入至進度上，確保每週都能完成進度，每天晚上與週末的時間則會保持彈性的進修，無論是複習或是突然有想了解的技術，因此每天原本上班的8小時，加上彈性的2小時，一週五天就可以有50小時的投入，剩下的空餘時間在看當時的進度狀況做判斷。我認為這樣的規劃可以跟上進度，同時又保有生活的平衡。
+                    </div>
+                </div>
+                <div class="question_part">
+                    <div id="section4" class="article_title">軟體技術日新月異，如何確定選擇投入的領域是正確有回報的？</div>
+                    <div class="article_content">
+                        這次來到WeHelp，當然首要目的是學會網站開發，但背後還要去體會的是如何學會一個新領域，我想這是很多教育常談的議題，怎麼啟發一個學生自學，未來學生自然會走下去。所以回答這個問題，我想彭彭老師在招生說明會提到了網站開發是初學者很好切入的軟體領域，同時如果我能體會到學習軟體工程的經驗，我認為這是一段很有回報的投資，因為這樣才有能力繼續挑戰日新月異的軟體技術。
+                    </div>
+                </div>
+                <div class="question_part">
+                    <div id="section5" class="article_title">請描述一件產生明顯負面情緒的經歷，如何處理該情緒？</div>
+                    <div class="article_content">
+                        近期遇見的負面情緒是成長停滯，比如學習遇到卡關，急於求成的心情反而被焦慮感吞噬。我的處理方式是持續地思考未來2年的願景，例如成為厲害的工程師，隨著時間的演進，回過頭想半年、一年前的自己，會看見自己的成長，這一個正能量的經驗可以降低短期停滯的痛苦，這是我在心態上處理。每一天我也會留一點空白的時間，可以做任何事情，這可以幫助工作生活的平衡，讓自己不要進入過勞的狀態，心態上也會更穩健。
+                    </div>
+                </div>
+                <div class="question_part">
+                    <div id="section6" class="article_title">關於這份申請網頁，分享一個開發時的技術心得</div>
+                </div>
+                <div class="question_part">
+                    <div id="section7" class="article_title">如何看待自身工作和整個社會群體的連結關係？</div>
+                    <div class="article_content">
+                        有意義的工作能保有長期的動力，有樂趣的工作能活絡這個過程。意義來自能夠影響別人，無論是提供物質、服務或是心靈上的滿足，這些都是跟社會的一種連結。有趣來自與人合作、競爭完成某些事情，亦或是與人分享、交流促進彼此成長，這也是與社會的一種連結。我們一天花了8小時以上投入在工作中，如果能夠保有這2個部分，我會覺得很幸運。
+                    </div>
+                </div>
+                <div class="question_part">
+                    <div id="section8" class="article_title">其他想要對我們說的事情？</div>
+                    <div class="article_content">看完招生說明會時，心中又燃起鬥志，很期待1/6的到來！</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+    </body>
+
+</html>
