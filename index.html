@@ -8,13 +8,27 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/default.min.css">
     </head>
     <body>
-        <div class="top">
-            <img src="image/top_banner.JPEG" alt="top-banner">
+        <div class="top_container">
+            <img src="image/top_banner4.JPEG" alt="top-banner"> 
         </div>
         <div class="container">
             <div class="left_container">
+                <div class="profile_card_web">
+                    <img src="image/top_profile.JPEG" alt="大頭照" class="profile_photo">
+                    <div class="profile_name">William Yu (游書維)</div>
+                    <div class="profile_email">wei10011092@gmail.com</div>
+                    <div class="profile_href"><a href="https://www.linkedin.com/in/william-yu-508609151/" target="_blank">LinkedIn</a></div>
+                </div>
+                <div class="profile_card_mobile">
+                    <img src="image/top_profile.JPEG" alt="大頭照" class="profile_photo_mobile">
+                    <div class="profile_right_content">
+                        <div class="profile_name">William Yu (游書維)</div>
+                        <div class="profile_email">wei10011092@gmail.com</div>
+                        <div class="profile_href"><a href="https://www.linkedin.com/in/william-yu-508609151/" target="_blank">LinkedIn</a></div>
+                    </div>
+                </div>
                 <div class="toc_container">
-                    <div class="toc_title">Table of Contents</div>
+                    <div class="toc_title">目錄</div>
                     <ul class="toc_list">
                         <li><a href="#section1" class="toc_a">個人簡介與申請動機</a></li>
                         <li><a href="#section2" class="toc_a">曾經做過哪些軟體工程技術相關的學習？若有作品請分享給我們。</a></li>
@@ -45,7 +59,7 @@
                 </div>
                 <div class="question_part">
                     <div id="section2" class="article_title">曾經做過哪些軟體工程技術相關的學習？若有作品請分享給我們</div>
-                    <pre class="code_case"><code class="language-sql">
+                    <pre class="code_case_1"><code class="language-sql">
 /*
 Case 1 SQL：工作中，替行銷團隊撈取資料
     a. 此Case是廣告團隊要將已經下單過的用戶，將其email匯入廣告後台，避免推廣新用戶的廣告打到舊客
@@ -69,6 +83,11 @@ and o.contact_email NOT IN(
     and m.country_cd = 'TW'
 )
                     </code></pre>
+                    <div class="code_case_2">
+                        <div class="code_case_2_title">Case 2 Python</div>
+                        <div><a href="https://github.com/William-Yu-1206/William-Yu-1206.github.io/blob/main/app-download-roi.ipynb" target="_blank">GitHub連結</a></div>
+                        <div>簡述：這是工作中唯一一次使用Python的Case，情境是針對下載App的投放廣告，想知道這群人下載後30天內的效益，是否能負擔投放的成本。由於資料分散在公司與第3方平台上，且是探索性的單次分析，因此我先使用Python進行處理。</div>
+                    </div>
                 </div>
                 <div class="question_part">
                     <div id="section3" class="article_title">如果參與這個訓練，會怎麼安排學習時間？</div>
@@ -93,6 +112,12 @@ and o.contact_email NOT IN(
                 </div>
                 <div class="question_part">
                     <div id="section6" class="article_title">關於這份申請網頁，分享一個開發時的技術心得</div>
+                    <div class="article_content">
+                        我想做一個目錄，點擊目錄連結至對應的區塊，方便使用者查找。在找資料時才知道CSS Selector選擇器有各自的特性，像是目錄可以透過id選擇器來完成，因為id選擇器是唯一值，不能在同一個頁面上多次使用相同的id，同時具備錨點的性能，所以我可以在超連結標籤中放上#id名稱，完成目錄的建立。而class選擇器就適用在通用的區塊上，例如文章內容的樣式，我只要在每一個段落都放上同一個class選擇器，之後只要改一次CSS樣式，所有文章內容都會同步調整。
+                    </div>
+                    <div class="article_content">
+                        另一個心得是我想放上程式區塊，透過pre和code標籤來達成，因為pre標籤不會自動換行，所以有可能超出容器的寬度，就得再透過css設定white-space: pre-wrap來允許換行。未來若使用其他標籤遇到類似的問題時，我就可以有一個經驗法則，先確認是否是標籤的特性導致。
+                    </div>
                 </div>
                 <div class="question_part">
                     <div id="section7" class="article_title">如何看待自身工作和整個社會群體的連結關係？</div>
